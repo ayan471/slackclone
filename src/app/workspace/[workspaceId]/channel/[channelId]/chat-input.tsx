@@ -24,7 +24,7 @@ type CreateMessageValues = {
 export const ChatInput = ({ placeholder }: ChatInputProps) => {
   const editorRef = useRef<Quill | null>(null);
 
-  const [pending, setIsPending] = useState(false);
+  const [isPending, setIsPending] = useState(false);
 
   const [editorKey, setEditorKey] = useState(0);
 
@@ -93,7 +93,7 @@ export const ChatInput = ({ placeholder }: ChatInputProps) => {
         key={editorKey}
         placeholder={placeholder}
         onSubmit={handleSubmit}
-        disabled={false}
+        disabled={isPending}
         innerRef={editorRef}
       />
     </div>
